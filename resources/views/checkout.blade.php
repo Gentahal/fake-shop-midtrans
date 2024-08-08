@@ -24,7 +24,7 @@
         snap.pay('{{ $transaction->snap_token }}', {
           // Optional
           onSuccess: function(result){
-            /* You may add your own js here, this is just example */ document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+            window.location.href = '{{ route('checkout-success', $transaction->id) }}';
           },
           // Optional
           onPending: function(result){

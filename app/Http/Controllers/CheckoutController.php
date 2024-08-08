@@ -58,4 +58,12 @@ class CheckoutController extends Controller
 
         return view('checkout',  compact('transaction', 'product'));
     }
+
+    public function success(Transaction $transaction)
+    {
+        $transaction->status = 'success';
+        $transaction->save();
+
+        return view('success');
+    }
 }
